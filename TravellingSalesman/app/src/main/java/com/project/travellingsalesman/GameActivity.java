@@ -70,7 +70,7 @@ public class GameActivity extends Activity {
                                                 layout,
                                                 onClickListener,
                                            35,
-                                                screenLayout.point(GameActivity.this));
+                                                screenLayout.getScreenView(GameActivity.this));
 
     }
 

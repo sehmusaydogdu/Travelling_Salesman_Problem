@@ -73,13 +73,13 @@ public class StateMenuActivity extends Activity{
                                                      onClickListener,
                                                      Examples.getCores()[levelClicked].length,
                                                      stateSaved,
-                                                     screenLayout.point(StateMenuActivity.this));
+                                                     screenLayout.getScreenView(StateMenuActivity.this));
         else
             buttons =  creatorButtons.create(this,
                                                      layout,
                                                      onClickListener,
                                                      Examples.getCores()[levelClicked].length,
                                                      Examples.getCores()[levelClicked].length,
-                                                     screenLayout.point(StateMenuActivity.this)); //, değil ise hepsi yeşil ve enabled, dizi aşılıyor**
+                                                     screenLayout.getScreenView(StateMenuActivity.this)); //, değil ise hepsi yeşil ve enabled, dizi aşılıyor**
     }
 }

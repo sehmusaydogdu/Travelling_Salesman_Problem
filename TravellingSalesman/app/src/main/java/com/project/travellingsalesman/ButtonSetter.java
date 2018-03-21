@@ -13,17 +13,19 @@ class ButtonSetter {
 
 
 
-    ButtonSetter(int i,Point p) {
+    ButtonSetter(int i,ScreenView screenView) {
         count=0;
-        if(i==0) levelStateSetter(p);
-        if(i==1) imageButtonSetter(p);
-
+        if(i==0) levelStateSetter(screenView);
+        if(i==1) imageButtonSetter(screenView);
     }
 
-    private void imageButtonSetter(Point p) {
+    private void imageButtonSetter(ScreenView screenView) {
+
+        point=screenView.getPoint();
+
         constX=30;
         constY=30;
-        point=p;
+
 
         setWidth(200);
         setHeight(200);
@@ -33,10 +35,10 @@ class ButtonSetter {
     }
 
 
-    private void levelStateSetter(Point p){
+    private void levelStateSetter(ScreenView screenView){
         constX=50;
         constY=50;
-        point=p;
+        point=screenView.getPoint();
 
         setWidth(200);
         setHeight(200);

@@ -15,11 +15,11 @@ class CreatorButtons {
 
     //int alan methot menuler icin, float alan oyun icin
 
-    ArrayList<Button> create(Context context, RelativeLayout layout, View.OnClickListener onClickListener, int size, int value,Point point) {
+    ArrayList<Button> create(Context context, RelativeLayout layout, View.OnClickListener onClickListener, int size, int value,ScreenView screenView) {
         //level ve state menuleri icin methot
 
         ArrayList<Button> buttons = new ArrayList<>();
-        ButtonSetter buttonSetter = new ButtonSetter(0,point);
+        ButtonSetter buttonSetter = new ButtonSetter(0,screenView);
 
         for(int i=0;i<size;i++) {
 
@@ -45,9 +45,9 @@ class CreatorButtons {
     }
 
     @SuppressLint("NewApi") //game aktivitesi icin methot
-    ArrayList<ImageButton> create(Context context, RelativeLayout layout, View.OnClickListener onClickListener, int size, Point point) {
+    ArrayList<ImageButton> create(Context context, RelativeLayout layout, View.OnClickListener onClickListener, int size, ScreenView screenView) {
 
-        ButtonSetter buttonSetter = new ButtonSetter(1,point);
+        ButtonSetter buttonSetter = new ButtonSetter(1,screenView);
         ArrayList<ImageButton> buttons = new ArrayList<>();
 
         for(int i=0;i<size;i++) {
