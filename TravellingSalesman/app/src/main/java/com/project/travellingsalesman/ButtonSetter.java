@@ -20,41 +20,48 @@ class ButtonSetter {
         if(i==1) imageButtonSetter(screenView);
     }
 
-    private void SettingImage(float density){
-        if (density >= 4.0) {
+    private void imageButtonSetter(ScreenView screenView) {
+
+        if (screenView.getDensity() >= 4.0) {
             //return "xxxhdpi";
         }
-        if (density >= 3.0) {
+        if (screenView.getDensity() >= 3.0) {
             //return "xxhdpi";
         }
-        if (density >= 2.0) {//"xhdpi";
+        if (screenView.getDensity() > 2.0) {//"xhdpi";
             constX=30;constY=30; setWidth(200);setHeight(200);setX(constX);setY(constY);
         }
-        if (density >= 1.5) {
+        if (screenView.getDensity() >= 1.5  && screenView.getDensity()<=2.0) {
             //return "hdpi";
+            constX=30;constY=30; setWidth(120);setHeight(120);setX(constX);setY(constY);
         }
-        if (density >= 1.0) {
-           // return "mdpi";
+        if (screenView.getDensity() >= 1.0) {
+            // return "mdpi";
         }
         //return "ldpi";
     }
 
-    private void imageButtonSetter(ScreenView screenView) {
-        SettingImage(screenView.getDensity());
-    }
-
 
     private void levelStateSetter(ScreenView screenView){
-        constX=50;
-        constY=50;
 
-        setWidth(200);
-        setHeight(200);
-
-        setX(constX);
-        setY(constY);
+        if (screenView.getDensity() >= 4.0) {
+            //return "xxxhdpi";
+        }
+        if (screenView.getDensity() >= 3.0) {
+            //return "xxhdpi";
+        }
+        if (screenView.getDensity() > 2.0) {//"xhdpi";
+            constX=50;constY=50; setWidth(200);setHeight(200);setX(constX);setY(constY);
+        }
+        if (screenView.getDensity() >= 1.5  && screenView.getDensity()<=2.0) {
+            //return "hdpi";
+            constX=30;constY=30; setWidth(150);setHeight(150);setX(constX);setY(constY);
+        }
+        if (screenView.getDensity() >= 1.0) {
+            // return "mdpi";
+        }
+        //return "ldpi";
     }
-
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void setView(int i,View button) {
