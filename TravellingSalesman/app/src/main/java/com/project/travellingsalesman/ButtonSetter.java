@@ -24,19 +24,23 @@ class ButtonSetter {
 
         if (screenView.getDensity() >= 4.0) {
             //return "xxxhdpi";
+
         }
-        if (screenView.getDensity() >= 3.0) {
+        else if (screenView.getDensity() > 3.0) {
             //return "xxhdpi";
+            constX=30;constY=30; setWidth(280);setHeight(280);setX(constX);setY(constY);
         }
-        if (screenView.getDensity() > 2.0) {//"xhdpi";
+        else if (screenView.getDensity() > 2.0 && screenView.getDensity()<=3.0) {
+            //"xhdpi";
             constX=30;constY=30; setWidth(200);setHeight(200);setX(constX);setY(constY);
         }
-        if (screenView.getDensity() >= 1.5  && screenView.getDensity()<=2.0) {
+        else if (screenView.getDensity() > 1.5  && screenView.getDensity()<=2.0) {
             //return "hdpi";
             constX=30;constY=30; setWidth(120);setHeight(120);setX(constX);setY(constY);
         }
-        if (screenView.getDensity() >= 1.0) {
+        else if (screenView.getDensity() >= 1.0 && screenView.getDensity()<=1.5) {
             // return "mdpi";
+            constX=30;constY=30; setWidth(62);setHeight(62);setX(constX);setY(constY);
         }
         //return "ldpi";
     }
@@ -46,19 +50,23 @@ class ButtonSetter {
 
         if (screenView.getDensity() >= 4.0) {
             //return "xxxhdpi";
+
         }
-        if (screenView.getDensity() >= 3.0) {
+        else if (screenView.getDensity() > 3.0) {
             //return "xxhdpi";
+            constX=70;constY=70; setWidth(280);setHeight(280);setX(constX);setY(constY);
         }
-        if (screenView.getDensity() > 2.0) {//"xhdpi";
+        else if (screenView.getDensity() > 2.0 && screenView.getDensity()<=3.0) {
+            //"xhdpi";
             constX=50;constY=50; setWidth(200);setHeight(200);setX(constX);setY(constY);
         }
-        if (screenView.getDensity() >= 1.5  && screenView.getDensity()<=2.0) {
+        else if (screenView.getDensity() > 1.5  && screenView.getDensity()<=2.0) {
             //return "hdpi";
             constX=30;constY=30; setWidth(150);setHeight(150);setX(constX);setY(constY);
         }
-        if (screenView.getDensity() >= 1.0) {
+        else if (screenView.getDensity() >= 1.0 && screenView.getDensity()<=1.5) {
             // return "mdpi";
+            constX=30;constY=30; setWidth(80);setHeight(80);setX(constX);setY(constY);
         }
         //return "ldpi";
     }
