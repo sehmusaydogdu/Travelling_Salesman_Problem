@@ -22,11 +22,10 @@ class ButtonSetter {
 
     private void imageButtonSetter(ScreenView screenView) {
 
-        if (screenView.getDensity() >= 4.0) {
+        if (screenView.getDensity() > 4.0) {
             //return "xxxhdpi";
-
         }
-        else if (screenView.getDensity() > 3.0) {
+        else if (screenView.getDensity() > 3.0 && screenView.getDensity()<=4.0) {
             //return "xxhdpi";
             constX=30;constY=30; setWidth(280);setHeight(280);setX(constX);setY(constY);
         }
@@ -48,11 +47,10 @@ class ButtonSetter {
 
     private void levelStateSetter(ScreenView screenView){
 
-        if (screenView.getDensity() >= 4.0) {
+        if (screenView.getDensity() > 4.0) {
             //return "xxxhdpi";
-
         }
-        else if (screenView.getDensity() > 3.0) {
+        else if (screenView.getDensity() > 3.0 && screenView.getDensity()<=4.0) {
             //return "xxhdpi";
             constX=70;constY=70; setWidth(280);setHeight(280);setX(constX);setY(constY);
         }
