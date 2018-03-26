@@ -11,8 +11,6 @@ class ButtonSetter {
     private int constX,constY;
     private Point point;
 
-
-
     ButtonSetter(int i,ScreenView screenView) {
         point=screenView.getPoint();
         count=0;
