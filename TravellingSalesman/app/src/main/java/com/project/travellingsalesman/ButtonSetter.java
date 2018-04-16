@@ -80,21 +80,21 @@ class ButtonSetter {
         button.setX(x);
         button.setY(y);
 
-        /*if (count==5){
+        if (count==5){
             count=0;
             x=constX;
             y+=constY+height;
         }
         else
-            x+=constX+width;*/
+            x+=constX+width;
 
-        if(constX*2+width+x<point.x){
+        /*if(constX*2+width+x<point.x){
             x+=constX+width;
         }
         else{
             x=constX;
             y+=constY+height;
-        }
+        }*/
 
 
     }

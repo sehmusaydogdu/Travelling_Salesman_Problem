@@ -2,7 +2,6 @@ package com.project.travellingsalesman;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.view.View;
 
@@ -32,24 +31,14 @@ public class DrawView extends View {
                             endView.getY()+endView.getHeight()/2,paint);
     }
 
-    View getStartView() {
 
-        return startView;
-    }
+    protected View getStartView() { return startView; }
 
-    View getEndView() {
+    protected View getEndView() { return endView; }
 
-        return endView;
-    }
 
-    void setColor(int color) {
+    protected void setColor(int color) { paint.setColor(color); }
 
-        paint.setColor(color);
-    }
-
-    void setWidth(int width) {
-
-        paint.setStrokeWidth(width);
-    }
+    protected void setWidth(int width) { paint.setStrokeWidth(width); }
 }
 

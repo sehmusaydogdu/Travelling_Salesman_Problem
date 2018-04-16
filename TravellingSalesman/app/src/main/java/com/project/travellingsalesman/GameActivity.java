@@ -3,10 +3,8 @@ package com.project.travellingsalesman;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -26,10 +24,8 @@ public class GameActivity extends Activity {
     private ScreenLayout screenLayout;
 
     private void init() {
-
         screenLayout=new ScreenLayout();
         selectedButtons = new ArrayList<>();
-
     }
 
     @Override

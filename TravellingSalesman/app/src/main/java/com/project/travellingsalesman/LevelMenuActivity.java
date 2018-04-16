@@ -45,8 +45,10 @@ public class LevelMenuActivity extends Activity{
             public void onClick(View v) {
 
                 Intent intent=new Intent(LevelMenuActivity.this,StateMenuActivity.class);
-                intent.putExtra("levelSaved",level);        //katıtlı level, kullanıcının en son geldigi level
-                intent.putExtra("levelClicked",v.getId());  //tiklanan level, kullanıcının oynamak için seçtiği level, kayıtlı ve secili level esit ise 2. aktivite ona gore olusturulacak.
+                //kayıtlı level, kullanıcının en son geldigi level
+                intent.putExtra("levelSaved",level);
+                //tiklanan level, kullanıcının oynamak için seçtiği level, kayıtlı ve secili level esit ise 2. aktivite ona gore olusturulacak.
+                intent.putExtra("levelClicked",v.getId());
                 startActivity(intent);
                 finish();
             }

@@ -3,7 +3,6 @@ package com.project.travellingsalesman;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Point;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;

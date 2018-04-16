@@ -1,7 +1,8 @@
 package com.project.travellingsalesman;
 
 
-class Examples {     //Örnekler, her level bir core listesi, her listeye eklenen eleman o levelin sorusu(state-durum değeri) oluyor.
+class Examples {
+    //Örnekler, her level bir core listesi, her listeye eklenen eleman o levelin sorusu(state-durum değeri) oluyor.
 
     private static Core[][] cores;
 
@@ -45,8 +46,8 @@ class Examples {     //Örnekler, her level bir core listesi, her listeye eklene
 
         };
     }
-
+    //örnekleri çekme
     public static Core[][] getCores() {
         return cores;
-    }   //örnekleri çekme
+    }
 }

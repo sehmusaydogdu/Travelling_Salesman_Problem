@@ -1,10 +1,13 @@
 package com.project.travellingsalesman;
 
-
 import android.graphics.Point;
 
-public class ScreenView {
 
+//Aslında bir MODEL, ekranın çözünürlüğünü alarak istediğimiz gibi kullanmamızı sağlar.
+//density => Ekranın çözünürlüğünü ele alır.
+// Point  => Ekranın X(Genişlik) ve Y(Yükseklik) ele alır.
+
+public class ScreenView {
 
     private float density;
     private Point point;
@@ -24,6 +27,4 @@ public class ScreenView {
     public void setDensity(float density) {
         this.density = density;
     }
-
-
 }
