@@ -5,5 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.StateMenuActivity"
-    android:id="@+id/stateMenuActivity"/>
+    tools:context=".Views.GameActivity"
+    android:id="@+id/gameActivity">
+
+    <RelativeLayout
+        android:id="@+id/layoutDraw"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </RelativeLayout>
+
+</RelativeLayout>
