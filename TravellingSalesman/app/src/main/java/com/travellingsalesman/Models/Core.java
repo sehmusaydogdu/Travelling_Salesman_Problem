@@ -1,4 +1,4 @@
-package com.project.travellingsalesman;
+package com.travellingsalesman.Models;
 
 public class Core {
 
