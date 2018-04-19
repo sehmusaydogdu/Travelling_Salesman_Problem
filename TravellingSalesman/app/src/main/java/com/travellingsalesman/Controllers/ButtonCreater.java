@@ -11,12 +11,17 @@ import android.widget.RelativeLayout;
 import com.travellingsalesman.Models.ScreenSettings;
 import com.travellingsalesman.R;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ButtonCreater {
 
     private Context context;
     private RelativeLayout layout;
     private View.OnClickListener onClickListener;
     private ScreenSettings settings;
+
+    private List<ImageButton> gameButonList;
 
     public ButtonCreater(Context context,
                          RelativeLayout layout,
@@ -53,24 +58,30 @@ public class ButtonCreater {
         }
     }
 
-
-
-    @SuppressLint("NewApi") //game aktivitesi icin methot
+    @SuppressLint("NewApi") /////game aktivitesi icin methot
     public void create(int size){
 
+        gameButonList=new ArrayList<>();
         ButtonSetter buttonSetter=new ButtonSetter(1,settings);
         for(int i=0;i<size;i++) {
 
             ImageButton button = new ImageButton(context);
             buttonSetter.setView(1,button);
-            button.setVisibility(View.INVISIBLE);
+            //button.setVisibility(View.INVISIBLE);
             //button.setImageResource(R.mipmap.home0);
             button.setBackground(null);
             button.setPadding(0,0,0,0);
             button.setElevation(24);
             button.setOnClickListener(onClickListener);
             layout.addView(button);
+            gameButonList.add(button);
         }
+    }
+
+
+    //Oyun sırasında oluşan imageButonların Listesini gönderiyorum.
+    public List<ImageButton> getGameButonList(){
+        return gameButonList;
     }
 
 }

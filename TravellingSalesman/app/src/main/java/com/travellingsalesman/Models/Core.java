@@ -20,7 +20,7 @@ public class Core {
         this.solution=solution;
     }
 
-    protected int[] getCities() { return cities; }
+    public int[] getCities() { return cities; }
 
     protected int[][] getCosts() { return costs; }
 
