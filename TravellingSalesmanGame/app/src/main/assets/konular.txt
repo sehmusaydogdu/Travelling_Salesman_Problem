@@ -1,0 +1,7 @@
+Algoritma : Bir sorunu çözmek veya belirlenmiş bir amaca ulaşmak için tasarlanan yola, takip edilen işlem basamaklarına denir.
+Gezgin Satıcı Problemi yöneylem araştırması ve teorik bilgisayar bilimleri alanlarında incelenen bir kombinatorik optimizasyon problemidir.
+İlk ortaya atılışı 1800 ‘lü yıllar olmuştur.
+Bugüne kadar çözülen en büyük gezgin satıcı problemi 24.978 noktalıdır ve İsveç'te yerleşimi olan her nokta için çözülmüştür.96 bilgisayarlı bir ağ üzerinde 3 yılda çözülmüştür.
+En kesin çözümü bulan algoritma dinamik programlamadır.
+Gezgin satıcıyı çözen algoritmalar ; Tavla benzetim algoritması , Kanguru algoritması , Yapay arı kolonisi algoritması , Genetik algoritma , Karınca kolonisi algoritması , Tepe Tırmanma algoritması , İreatif yerel arama Algoritması
+

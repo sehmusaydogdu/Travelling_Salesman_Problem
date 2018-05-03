@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "734945369811",
+    "firebase_url": "https://tspgameproject-1524296305019.firebaseio.com",
+    "project_id": "tspgameproject-1524296305019",
+    "storage_bucket": "tspgameproject-1524296305019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734945369811:android:f51cd2f9059df039",
+        "android_client_info": {
+          "package_name": "com.travellingsalesmangame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734945369811-i3d2rq0cdpsjrmgqnag2dr7ch4ejh4e0.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "734945369811-bebn62rjin77brtuurm7ckggtpcbsg5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD842ZnUz1RDkrH5lBoBQ8Bn4GjbinP-Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734945369811-i3d2rq0cdpsjrmgqnag2dr7ch4ejh4e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
