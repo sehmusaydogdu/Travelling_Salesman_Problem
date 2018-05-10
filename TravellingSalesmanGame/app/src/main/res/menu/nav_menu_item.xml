@@ -12,18 +12,10 @@
         android:title="Profil Görüntüle"
         android:icon="@drawable/ic_home_black_24dp"/>
 
-   <!-- <item
-        android:id="@+id/konuAnlatimi"
-        android:title="Konu Anlatımı"
-        android:icon="@drawable/ic_library_books_black_24dp"/>
     <item
-        android:id="@+id/test"
-        android:title="Test"
-        android:icon="@drawable/ic_test_black_24dp"/>
-    <item
-        android:id="@+id/oyun"
-        android:title="Oyun"
-        android:icon="@drawable/ic_game_black_24dp"/>-->
+        android:id="@+id/istatistik"
+        android:title="İstatistikler"
+        android:icon="@drawable/ic_trending_up_black_24dp"/>
 
     <item
         android:id="@+id/cikis"

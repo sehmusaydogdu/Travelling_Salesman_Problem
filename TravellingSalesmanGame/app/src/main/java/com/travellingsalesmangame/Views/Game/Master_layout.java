@@ -1,8 +1,6 @@
 package com.travellingsalesmangame.Views.Game;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
@@ -19,9 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,10 +27,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.travellingsalesmangame.Controllers.Login.Encode;
 import com.travellingsalesmangame.MasterYonlendir;
+import com.travellingsalesmangame.Profil;
 import com.travellingsalesmangame.Views.Login.LoginActivity;
 import com.travellingsalesmangame.Models.Login.User;
 import com.travellingsalesmangame.R;
-import com.travellingsalesmangame.Test;
 
 
 public class Master_layout extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -80,14 +76,6 @@ public class Master_layout extends AppCompatActivity implements NavigationView.O
                         dataSnapshot.child("password").getValue(String.class) == null ||
                         !dataSnapshot.child("password").getValue(String.class).equals(user.getPassword()))
                     login_in();
-
-                else {
-                    /*View layout= View.inflate(this,R.layout.nav_header_item,nav_view);
-                    nameTxt=layout.findViewById(R.id.nameTxt);
-                    emailTxt=layout.findViewById(R.id.emailTxt);
-                    nameTxt.setText(user.getUserName());
-                    emailTxt.setText(user.getEmail());*/
-                }
             }
 
             @Override
@@ -134,7 +122,7 @@ public class Master_layout extends AppCompatActivity implements NavigationView.O
 
         MasterYonlendir masterYonlendir= new MasterYonlendir();
         transaction=manager.beginTransaction();
-        transaction.replace(R.id.context_main,masterYonlendir,"Fragment A");
+        transaction.replace(R.id.context_main,masterYonlendir);
         transaction.commit();
     }
 
@@ -160,35 +148,18 @@ public class Master_layout extends AppCompatActivity implements NavigationView.O
         if(id==R.id.cikis)
             login_out();
 
-        /*if(id==R.id.konuAnlatimi){
-            activity_pop_menu popActivity=new activity_pop_menu();
+        if(id==R.id.istatistik){
+            Istatistik istatistik=new Istatistik();
             transaction=manager.beginTransaction();
-            transaction.replace(R.id.context_main,popActivity);
+            transaction.replace(R.id.context_main,istatistik);
             transaction.commit();
-            Master_layout.this.setTitle("Konu Anlatımı");
         }
-
-        if (id==R.id.test){
-            Test test=new Test();
-            transaction=manager.beginTransaction();
-            transaction.replace(R.id.context_main,test);
-            transaction.commit();
-            Master_layout.this.setTitle("Test");
-        }
-
-        if(id==R.id.oyun){
-            LevelMenu_Fragment fragmentA= new LevelMenu_Fragment();
-            transaction=manager.beginTransaction();
-            transaction.replace(R.id.context_main,fragmentA);
-            transaction.commit();
-            Master_layout.this.setTitle("Oyun");
-        }*/
 
         if (id==R.id.profil){
-            /*LoginActivity test=new LoginActivity();
+            Profil profil=new Profil();
             transaction=manager.beginTransaction();
-            transaction.replace(R.id.context_main,test,"fdsf");
-            transaction.commit();*/
+            transaction.replace(R.id.context_main,profil);
+            transaction.commit();
         }
 
         master_layout.closeDrawer(GravityCompat.START);

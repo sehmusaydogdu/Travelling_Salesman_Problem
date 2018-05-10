@@ -32,7 +32,10 @@
         <activity android:name=".Test_sonuc" />
         <activity android:name=".Game_result" />
         <activity android:name=".MasterYonlendir" />
-        <activity android:name=".MasterChange"></activity>
+        <activity android:name=".MasterChange" />
+        <activity android:name=".Views.Game.Istatistik" />
+        <activity android:name=".Profil" />
+        <activity android:name=".Views.Game.Hikaye" />
     </application>
 
 </manifest>

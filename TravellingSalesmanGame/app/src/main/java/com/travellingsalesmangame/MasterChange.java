@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.travellingsalesmangame.Views.Game.Hikaye;
 import com.travellingsalesmangame.Views.Game.LevelMenu_Fragment;
 import com.travellingsalesmangame.Views.Game.PopActivity;
 
@@ -55,10 +56,10 @@ public class MasterChange extends Fragment {
             @Override
             public void onClick(View v) {
 
-                LevelMenu_Fragment game=new LevelMenu_Fragment();
+                Hikaye hikaye=new Hikaye();
                 fragmentManager=getFragmentManager();
                 transaction=fragmentManager.beginTransaction();
-                transaction.replace(R.id.context_main,game);
+                transaction.replace(R.id.context_main,hikaye);
                 transaction.commit();
             }
         });
