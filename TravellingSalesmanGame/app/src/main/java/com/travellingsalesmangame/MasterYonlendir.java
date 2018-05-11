@@ -3,20 +3,12 @@ package com.travellingsalesmangame;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-
-import com.google.gson.Gson;
-import com.travellingsalesmangame.Controllers.Login.Encode;
-import com.travellingsalesmangame.Models.Login.User;
 
 public class MasterYonlendir extends Fragment {
 
@@ -49,4 +41,6 @@ public class MasterYonlendir extends Fragment {
         init();
         return  view;
     }
+
+
 }

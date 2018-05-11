@@ -1,22 +1,21 @@
 package com.travellingsalesmangame;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.util.Log;
+import android.support.design.widget.NavigationView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,24 +26,28 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.google.gson.Gson;
 import com.travellingsalesmangame.Models.Login.User;
+import com.travellingsalesmangame.Views.Game.Master_layout;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.UUID;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import id.zelory.compressor.Compressor;
 
 import static android.app.Activity.RESULT_OK;
 
-public class Profil extends Fragment {
+public class Profil extends Fragment{
 
     private View view;
     private SharedPreferences prefs;
@@ -59,7 +62,6 @@ public class Profil extends Fragment {
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
-    private FirebaseAuth mAuth;
     private FirebaseStorage fStorage;
 
 
@@ -86,14 +88,9 @@ public class Profil extends Fragment {
             @Override
             public void onClick(View v) {
                 chooseImage();
-
             }
         });
 
-       // Bundle bundle=getArguments();
-       // profileImageView.setImageBitmap(bundle.<Bitmap>getParcelable("image"));
-
-        mAuth = FirebaseAuth.getInstance();
         fStorage = FirebaseStorage.getInstance();
 
         StorageReference storageRef = fStorage.getReference().child("images").child(user.getEmail());
@@ -102,7 +99,6 @@ public class Profil extends Fragment {
             @Override
             public void onSuccess(Uri uri) {
 
-                Log.i("msg",uri.toString());
                 try {
                     URL url = new URL(uri.toString());
                     Bitmap bitImage = BitmapFactory.decodeStream(url.openConnection().getInputStream());
@@ -120,8 +116,6 @@ public class Profil extends Fragment {
             @Override
             public void onFailure(@NonNull Exception e) {
 
-                //Toast.makeText(getActivity(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-
             }
         });
     }
@@ -133,22 +127,17 @@ public class Profil extends Fragment {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            //StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
             StorageReference ref = storageReference.child("images/"+ user.getEmail());
             ref.putFile(filePath)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
-                            //Log.i("msg",taskSnapshot.getDownloadUrl().toString());
-                            // Toast.makeText(getActivity(), "Uploaded", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
-                        public void onFailure(@NonNull Exception e) {
-                            progressDialog.dismiss();
-                            //Toast.makeText(getActivity(), "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        public void onFailure(@NonNull Exception e) { progressDialog.dismiss();
                         }
                     })
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -177,19 +166,12 @@ public class Profil extends Fragment {
         {
             filePath = data.getData();
             try {
-
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), filePath);
-
-                //Bitmap original = BitmapFactory.decodeStream(bitmap.);
-               /* ByteArrayOutputStream out = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, out);
-                byte [] byteArray=out.toByteArray();
-                */
-               String str=filePath.getPath();
-                Bitmap thumbBitmap = ThumbnailUtils.extractThumbnail(BitmapFactory.decodeFile(filePath.getPath()), 100, 100);
-                profileImageView.setImageBitmap(thumbBitmap);
-                Toast.makeText(getActivity(),"Resim alındı",Toast.LENGTH_LONG).show();
+                profileImageView.setImageBitmap(bitmap);
+                Toast.makeText(getActivity(),"Resim alındı",Toast.LENGTH_SHORT).show();
                 uploadImage();
+                Intent intent=new Intent(getActivity(), Master_layout.class);
+                startActivity(intent);
             }
             catch (IOException e)
             {
@@ -212,8 +194,4 @@ public class Profil extends Fragment {
         init();
         super.onActivityCreated(savedInstanceState);
     }
-
-
-
-
 }

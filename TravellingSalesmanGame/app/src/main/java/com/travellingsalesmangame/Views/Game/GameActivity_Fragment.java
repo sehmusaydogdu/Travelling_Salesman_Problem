@@ -6,6 +6,7 @@ import android.app.FragmentTransaction;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.travellingsalesmangame.Controllers.Game.Stage;
 import com.travellingsalesmangame.Game_result;
 import com.travellingsalesmangame.Models.Game.Core;
 import com.travellingsalesmangame.Models.Game.Examples;
+import com.travellingsalesmangame.Models.Game.Result;
 import com.travellingsalesmangame.Models.Game.ScreenSettings;
 import com.travellingsalesmangame.Models.Game.TimeSpan;
 import com.travellingsalesmangame.R;
@@ -43,7 +45,8 @@ public class GameActivity_Fragment extends Fragment {
     private DisplayMessage message;
 
     private View view;
-    private int levelSaved,levelClicked,stateSaved,stateClicked,click_count=0,totalScore=0;
+    private int levelSaved,levelClicked,stateSaved,stateClicked,click_count=0;
+    private double totalScore=0;
 
     private Calendar startDate,endDate;
     private Handler handler=new Handler();
@@ -167,9 +170,10 @@ public class GameActivity_Fragment extends Fragment {
                     handler.post(new Runnable() {
                         public void run() {
 
+                            long milisaniye = 0;
                             if(!sureDoldu){
                                 endDate=Calendar.getInstance();
-                                long milisaniye=endDate.getTimeInMillis()-startDate.getTimeInMillis();
+                                milisaniye=endDate.getTimeInMillis()-startDate.getTimeInMillis();
                                 TimeSpan span=new TimeSpan((int) milisaniye);
                                 StringBuilder sp=new StringBuilder();
                                 sp.append(span.getHours()+" : ");
@@ -177,50 +181,35 @@ public class GameActivity_Fragment extends Fragment {
                                 sp.append(span.getSeconds());
                                 txtTimeSpan.setText(String.valueOf(sp));
                             }
-
-                            if(sureDoldu)
-                                stop=true;
-
-                            int maliyet=core.getSolution()-totalScore;
+                            int maliyet= (int) (core.getSolution()-totalScore);
                             progressBar.setProgress(maliyet);
                             txtSkorPuan.setText(String.valueOf("Benzin Miktarı : "+maliyet));
 
-                            if(maliyet>=0 && stop){
-                                Bundle bundle=new Bundle();
-                                bundle.putInt("levelSaved",levelSaved);
-                                bundle.putInt("levelClicked",levelClicked);
-                                bundle.putBoolean("level_state_belirle",level_state_belirle);
-                                bundle.putString("yorum","Tebrikler! Görevi başarılı bir şekilde tamamladınız");
-                                bundle.putInt("puan",core.getSolution());
-                                bundle.putString("sure","Süre : "+txtTimeSpan.getText().toString());
-
-                                Game_result result=new Game_result();
-                                result.setArguments(bundle);
-
-                                fragmentManager=getFragmentManager();
-                                transaction=fragmentManager.beginTransaction();
-                                transaction.replace(R.id.context_main,result);
-                                transaction.commit();
-                            }
-
-                            if(maliyet<0){
+                            if(sureDoldu){
                                 stop=true;
-                                Bundle bundle=new Bundle();
-                                bundle.putInt("levelSaved",levelSaved);
-                                bundle.putInt("levelClicked",levelClicked);
-                                bundle.putBoolean("level_state_belirle",level_state_belirle);
-                                bundle.putString("yorum","Üzgünüm! Görev tamamlanmadı.");
-                                bundle.putInt("puan",maliyet);
-                                bundle.putString("sure","Süre : "+txtTimeSpan.getText().toString());
+                                Result result=new Result();
+                                result.setPuan((int) (core.getSolution()/totalScore*100));
+                                result.setSure(milisaniye);
+                                result.setSureTxt(txtTimeSpan.getText().toString());
+                                result.setLevelSaved(levelSaved);
+                                result.setLevelClicked(levelClicked);
+                                result.setLevel_state_durum(level_state_belirle);
 
-                                Game_result result=new Game_result();
-                                result.setArguments(bundle);
+                                if (core.getSolution()==totalScore)
+                                    result.setMessage("Tebrikler! Görevi başarılı bir şekilde tamamladınız");
+                                else
+                                    result.setMessage("Üzgünüm! Görev tamamlanmadı.");
+
+                                Bundle bundle=new Bundle();
+                                bundle.putSerializable("result", result);
+
+                                Game_result gameResult=new Game_result();
+                                gameResult.setArguments(bundle);
 
                                 fragmentManager=getFragmentManager();
                                 transaction=fragmentManager.beginTransaction();
-                                transaction.replace(R.id.context_main,result);
+                                transaction.replace(R.id.context_main,gameResult);
                                 transaction.commit();
-
                             }
                         }
                     });

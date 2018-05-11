@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.travellingsalesmangame.Models.Game.Result;
 import com.travellingsalesmangame.Views.Game.LevelMenu_Fragment;
 import com.travellingsalesmangame.Views.Game.StateMenu_Fragment;
 
@@ -20,17 +21,16 @@ public class Game_result extends Fragment {
     private View view;
     private ImageView imgView;
     private TextView txtYorum,txtSure_Sonuc,txtPuan_Sonuc;
-    private boolean levelState_Belirle;
     private int levelSaved,levelClicked;
 
     private FragmentManager fragmentManager;
     private FragmentTransaction transaction;
 
     private Button btn_Oyun;
-
+    private Result result;
     private void init(){
 
-        getActivity().setTitle("Skor");
+        getActivity().setTitle("Oyun Skorunuz");
         imgView=view.findViewById(R.id.imgView);
         btn_Oyun=view.findViewById(R.id.btn_Oyun);
 
@@ -39,14 +39,15 @@ public class Game_result extends Fragment {
         txtSure_Sonuc=view.findViewById(R.id.txtSure_Sonuc);
 
         Bundle bundle =getArguments();
-        txtYorum.setText(bundle.getString("yorum"));
-        txtSure_Sonuc.setText(bundle.getString("sure"));
-        txtPuan_Sonuc.setText(String.valueOf("Puan : "+bundle.getInt("puan")));
-        levelState_Belirle=bundle.getBoolean("level_state_belirle");
-        levelSaved=bundle.getInt("levelSaved",0);
-        levelClicked=bundle.getInt("levelClicked",0);
+        result= (Result) bundle.getSerializable("result");
+        txtYorum.setText(result.getMessage());
+        txtSure_Sonuc.setText("Süre :  "+result.getSureTxt());
+        txtPuan_Sonuc.setText("Kazanılan Puan : "+String.valueOf(result.getPuan()));
 
-        if(bundle.getInt("puan")>0)
+        levelClicked=result.getLevelClicked();
+        levelSaved=result.getLevelSaved();
+
+        if(result.getPuan()>0)
             imgView.setImageResource(R.drawable.prize);
 
         else
@@ -61,7 +62,7 @@ public class Game_result extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if(levelState_Belirle == true){
+                if(result.isLevel_state_durum()==true){
                     StateMenu_Fragment state=new StateMenu_Fragment();
 
                     Bundle bundle=new Bundle();
@@ -75,7 +76,6 @@ public class Game_result extends Fragment {
                     transaction.commit();
                 }
                 else {
-
                     LevelMenu_Fragment level=new LevelMenu_Fragment();
                     fragmentManager=getFragmentManager();
                     transaction=fragmentManager.beginTransaction();

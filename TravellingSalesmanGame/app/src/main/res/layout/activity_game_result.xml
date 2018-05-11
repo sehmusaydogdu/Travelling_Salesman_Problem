@@ -37,6 +37,7 @@
             android:text="Tebrikler Oyunu Başarılı bir şekilde geçtiniz.\n"/>
 
         <TextView
+            android:paddingTop="25dp"
             android:id="@+id/txtSure_Sonuc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,13 +47,14 @@
             android:text="Süre : 00 : 00 : 00"/>
 
         <TextView
+            android:paddingTop="10dp"
             android:id="@+id/txtPuan_Sonuc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="23sp"
             android:gravity="center"
             android:textColor="@color/white"
-            android:text="Puan :  100"/>
+            android:text="Kazanılan Puan : 100"/>
 
         <LinearLayout
             android:layout_width="match_parent"
