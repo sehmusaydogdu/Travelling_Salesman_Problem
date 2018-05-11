@@ -5,9 +5,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -15,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -101,7 +98,7 @@ public class PopActivity extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
 
         int id=v.getId();
-        if(id==R.id.btn_ileri) {
+        if(id== R.id.btn_ileri) {
             if(sayac==5){
 
                 AlertDialog.Builder alertMessage = new AlertDialog.Builder(getActivity(),AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
@@ -135,7 +132,7 @@ public class PopActivity extends Fragment implements View.OnClickListener{
             }
         }
 
-        if(id==R.id.btn_geri){
+        if(id== R.id.btn_geri){
             if(sayac==0){
                 textView.setText(list.get(sayac)[0].toString());}
             else{

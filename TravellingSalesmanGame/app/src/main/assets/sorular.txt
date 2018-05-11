@@ -1,10 +1,14 @@
-1) Algoritma Nedir?;Bilgisayar programlarına denir.;0;Bir problemi çözmek için ilk adım algoritmadır.;0;Bir bilgisayar programıdır.;0;Bir sorunu çözmek veya belirlenmiş bir amaca ulaşmak için tasarlanan yola, takip edilen işlem basamaklarına denir.;1
-2) Gezgin Satıcı Problemi Nedir?;Gezgin satıcı problemi yöneylem araştırması ve teorik bilgisayar bilimleri alanlarında incelenen bir kombinatorik optimizasyon problemidir.;1;İnsan nöronlarıyla ilgili bir problemdir.;0;Kargo şirketlerinin paketleme problemidir.;0;Bir kümeleme problemidir.;0
-3) İlk olarak hangi yıllarda ortaya atılmıştır?;1900;0;1950;0;1850;0;1800;1
-4) Bugüne kadar çözülen en büyük gezgin satıcı problemi hangi ülke için çözülmüştür?;Türkiye;0;Almanya;0;Fransa;0;İsveç;1
-5) İşveç için çözülen gezgin satıcı kaç noktalıdır?;10.659;0;24.978;1;45.745;0;9.456;0
-6) 24.978 noktalı problem 96 bilgisayar ile kaç yılda çözülmüştür?;4;0;5;0;3;1;6;0
-7) Gezgin satıcı için kesin çözümü bulan algoritma nedir?;Aç gözlü(greedy) algoritması;0;Genetik algoritma;0;Dinamik programlama;1;Karınca kolonisi algoritması;0
-8) Gezgin satıcı hangi problem sınıfına girer?;Kombinatorik optimizasyon problemidir.;1;Simplex problemidir.;0;Parametrik Problemdir.;0;Doğrusal olmayan problemdir.;0
-9) Gezgin satıcı çözen algoritmaların içinde hangisi yoktur?;Aç gözlü(Greedy) Algoritma;0;Karınca kolonisi;0;Genetik Algoritma;0;Tavla benzetim algoritması;1
-10) Aç gözlü(Greedy) olarak bilinen algoritma nedir?;Biliyorum;1;Bilmiyorum;0;Bilmiyorum;0;Bilmiyorum;0
+﻿1) Gezgi Satıcı Problemi her şehri kaç kez ziyaret etmeyi amaçlar?;0;0;1;1;2;0;3;0
+2) Aşağıdakilerden hangisi Hamilton turunun tanımıdır?;Tüm ayrıtları birbirinden ayrı olan ayrıt dizisidir.;0;Bir çizgenin tüm ayrıtlarını bir kere içeren kapalı bir yoldur.;0;Bir çizge üzerinde her ayrıttan sadece bir kez geçen ve başladığı tepeye geri dönen turdur.;0;Bir çizge üzerindeki her tepeden sadece bir kez geçen ve başladığı tepede biten turdur.;1
+3) Bugüne kadar çözülen en büyük gezgin satıcı problemi hangi ülke için çözülmüştür?;Türkiye;0;Almanya;0;Fransa;0;İsveç;1
+4) Problemde her bir tepe GSP için neyi temsil etmektedir?;Şehirler;1;Yön;0;Mesafe;0;Renk;0
+5) Problemde her bir bir ayrıt GSP için neyi temsil etmektedir?;Yön;0;Boyut;0;Renk;0;Maliyet;1
+6) GSP hangi problem sınıfına aittir?;P;0;NP;0;NP-Zor;1;NP-Tam;0
+7) 4 şehir içeren bir tam graf GSP kaç ayrıt barındırır?;4;0;5;0;6;1;7;0
+8) 4 şehir içeren bir GSP için bulunması gereken toplam tur sayısı kaçtır?;12;0;3;1;6;0;18;0
+9) Aşağıdakilerden hangisi GSP’nin çeşitlerinden değildir?;Simetrik GSP;0;Asimetrik GSP;0;Çinli Postacı Problemi;1;Açık GSP;0
+10) Aşağıdakilerden hangisi GSP’nin sezgisel çözüm yöntemlerinden değldir?;En yakın komşu algoritması;0;Açgözlü tekniği;0;En Ucuz Ekleme Sezgiseli;0;Dal ve Sınır Yöntemi;1;
+
+
+
+

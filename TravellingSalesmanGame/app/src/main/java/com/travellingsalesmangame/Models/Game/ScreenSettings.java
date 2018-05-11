@@ -30,7 +30,6 @@ public class ScreenSettings {
     }
 
 
-
     public ScreenSettings(Activity context){
 
         Point point=new Point();//Ekranın genişliğini ve yüksekliğini alıyorum.

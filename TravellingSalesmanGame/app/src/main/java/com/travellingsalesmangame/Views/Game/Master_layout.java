@@ -27,10 +27,15 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.travellingsalesmangame.Controllers.Login.Encode;
 import com.travellingsalesmangame.MasterYonlendir;
+import com.travellingsalesmangame.Models.Game.GameInfo;
 import com.travellingsalesmangame.Profil;
 import com.travellingsalesmangame.Views.Login.LoginActivity;
 import com.travellingsalesmangame.Models.Login.User;
 import com.travellingsalesmangame.R;
+import com.travellingsalesmangame.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Master_layout extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -41,13 +46,18 @@ public class Master_layout extends AppCompatActivity implements NavigationView.O
     private DrawerLayout master_layout;
     private NavigationView nav_view;
     private ActionBarDrawerToggle toggle;
+    private TextView nameTxt;
+    private TextView emailTxt;
 
     private User user;
+    private GameInfo gameInfo;
     private ValueEventListener listenerCookie ;                          //Tablo adı
+    private ValueEventListener listenerGameInfo ;
     private final DatabaseReference users = FirebaseDatabase.getInstance().getReference("User_b327a12217d490250cc533b28ddf2be79d3e6c5591a96ec3");
+    private final DatabaseReference games = FirebaseDatabase.getInstance().getReference("Game_eee653b64ab2ff1051e13c092396179e9d29bbc7ed6aa4a8");
 
     private SharedPreferences prefs;
-    private TextView nameTxt,emailTxt;
+
 
     private void init(){
 
@@ -76,6 +86,27 @@ public class Master_layout extends AppCompatActivity implements NavigationView.O
                         dataSnapshot.child("password").getValue(String.class) == null ||
                         !dataSnapshot.child("password").getValue(String.class).equals(user.getPassword()))
                     login_in();
+                else{
+
+                    games.child(Encode.encode(user.getEmail())).addValueEventListener(listenerGameInfo);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        };
+
+        listenerGameInfo=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(!dataSnapshot.exists())
+                    login_in();
+                else{
+                    gameInfo = dataSnapshot.getValue(GameInfo.class);
+                }
             }
 
             @Override
@@ -89,7 +120,7 @@ public class Master_layout extends AppCompatActivity implements NavigationView.O
         Gson gson=new Gson();
         String json=prefs.getString("user","");
         if(json.equals(""))
-           login_in();
+            login_in();
 
         else
         {
@@ -105,25 +136,17 @@ public class Master_layout extends AppCompatActivity implements NavigationView.O
         initListener();
         readIfAlreadyLogin();
         init();
-
-        Master_layout.this.setTitle("Anasayfa");
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        View layout= View.inflate(this,R.layout.nav_header_item,nav_view);
-        nameTxt=layout.findViewById(R.id.nameTxt);
-        emailTxt=layout.findViewById(R.id.emailTxt);
+        View view = View.inflate(this,R.layout.nav_header_item,nav_view);
+        nameTxt = view.findViewById(R.id.nameTxt);
+        emailTxt = view.findViewById(R.id.emailTxt);
         nameTxt.setText(user.getUserName());
         emailTxt.setText(user.getEmail());
-
-        MasterYonlendir masterYonlendir= new MasterYonlendir();
-        transaction=manager.beginTransaction();
-        transaction.replace(R.id.context_main,masterYonlendir);
-        transaction.commit();
     }
 
     @Override
@@ -134,28 +157,27 @@ public class Master_layout extends AppCompatActivity implements NavigationView.O
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int id=item.getItemId();
-        if (id==R.id.anasayfa){
+        if (id== R.id.anasayfa){
             MasterYonlendir fragmentA= new MasterYonlendir();
             transaction=manager.beginTransaction();
             transaction.replace(R.id.context_main,fragmentA);
             transaction.commit();
         }
 
-        if(id==R.id.cikis)
+        if(id== R.id.cikis)
             login_out();
 
-        if(id==R.id.istatistik){
+        if(id== R.id.istatistik){
             Istatistik istatistik=new Istatistik();
             transaction=manager.beginTransaction();
             transaction.replace(R.id.context_main,istatistik);
             transaction.commit();
         }
 
-        if (id==R.id.profil){
+        if (id== R.id.profil){
             Profil profil=new Profil();
             transaction=manager.beginTransaction();
             transaction.replace(R.id.context_main,profil);
@@ -197,7 +219,6 @@ public class Master_layout extends AppCompatActivity implements NavigationView.O
         builder.show();
 
     }
-
 
     //@Override
    /* public void onBackPressed() {

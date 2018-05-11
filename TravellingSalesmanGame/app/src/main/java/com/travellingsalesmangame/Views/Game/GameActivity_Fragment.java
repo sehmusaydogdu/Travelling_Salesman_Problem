@@ -112,13 +112,13 @@ public class GameActivity_Fragment extends Fragment {
             }
             else {
 
-                int pathCost=Examples.PathCosts(core.getCosts(),buttons.indexOf(oldButton),buttons.indexOf(button));
+                int pathCost= Examples.PathCosts(core.getCosts(),buttons.indexOf(oldButton),buttons.indexOf(button));
                 if(pathCost>0){
 
                     totalScore+=pathCost;
                     click_count++;
 
-                    DrawView drawView = new DrawView(getActivity(),oldButton,button,R.color.dark_orchid,10);
+                    DrawView drawView = new DrawView(getActivity(),oldButton,button, R.color.dark_orchid,10);
                     layoutDraw.addView(drawView);
 
                     if(click_count==core.getCities().length)

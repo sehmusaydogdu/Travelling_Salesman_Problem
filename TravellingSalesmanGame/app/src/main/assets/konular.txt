@@ -1,7 +1,9 @@
 Algoritma : Bir sorunu çözmek veya belirlenmiş bir amaca ulaşmak için tasarlanan yola, takip edilen işlem basamaklarına denir.
-Gezgin Satıcı Problemi yöneylem araştırması ve teorik bilgisayar bilimleri alanlarında incelenen bir kombinatorik optimizasyon problemidir.
-İlk ortaya atılışı 1800 ‘lü yıllar olmuştur.
-Bugüne kadar çözülen en büyük gezgin satıcı problemi 24.978 noktalıdır ve İsveç'te yerleşimi olan her nokta için çözülmüştür.96 bilgisayarlı bir ağ üzerinde 3 yılda çözülmüştür.
-En kesin çözümü bulan algoritma dinamik programlamadır.
-Gezgin satıcıyı çözen algoritmalar ; Tavla benzetim algoritması , Kanguru algoritması , Yapay arı kolonisi algoritması , Genetik algoritma , Karınca kolonisi algoritması , Tepe Tırmanma algoritması , İreatif yerel arama Algoritması
-
+Gezgin Satıcı Problemi (GSP)(Traveling Salesman Problem (TSP)), yöneylem araştırması ve bilgisayar bilimleri alanlarında incelenen ve iyi bilinen bir kombinatoriyel optimizasyon problemidir.
+Bugüne kadar çözülen en büyük gezgin satıcı problemi 24.978 noktalıdır ve İsveç'te yerleşimi olan her nokta için çözülmüştür.
+GSP, aralarındaki uzaklıklar bilinen n adet noktanın (şehir, parça veya düğüm gibi) her birisinden yalnız bir kez geçen en kısa veya en az maliyetli turun bulunmasını hedefleyen bir problemdir.
+Graf teorisinde ise, GSP “Verilen bir ağırlıklı grafda (düğümler yani tepeler şehirleri; ayrıtlar ise şehirlerin arasındaki yolları göstermek; ağırlıklar da yolun maliyeti veya uzunluğu olmak üzere) en düşük maliyetli Hamilton Devresinin bulunması” şeklinde tanımlanabilir.
+Hamilton turu, bir çizge üzerindeki her noktadan sadece bir kez geçen (dolayısıyla aynı yoldan da sadece bir kez geçen) ve başladığı noktada biten, 19. yüzyılda yaşamış matematikçi William Hamilton’un adıyla anılan turdur. Örneğin n noktadan oluşan bir tamçizge, yani Kn tamçizgesi (n-1)!/2 Hamilton turu içerir. Açıktır ki, n tepeli bir GSP n(n-1)/2 ayrıt barındıracaktır.
+GSP’nin farklı çeşitleri vardır: Simetrik GSP , Assimetrik GSP , Çoklu GSP , Açık GSP .
+GSP’nin NP-zor sınıftan olduğu bilinmektedir.
+Günümüzde GSP’yi çözmek için çözüm yaklaşımları geliştirilmiştir: Bunlar ; Kesin yöntemler, Yaklaşık yöntemler, Sezgisel yöntem

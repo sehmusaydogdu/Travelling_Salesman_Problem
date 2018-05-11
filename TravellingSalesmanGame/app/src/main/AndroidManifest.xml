@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.travellingsalesmangame">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -9,15 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Views.Game.Master_layout"
-            android:screenOrientation="portrait">
+
+        <activity android:name=".Views.Game.Master_layout"
+                  android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".Views.Login.LoginActivity"
             android:screenOrientation="portrait"
@@ -26,8 +31,8 @@
             android:name=".Views.Login.RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+
         <activity android:name=".Views.Game.PopActivity" />
-        <activity android:name=".Views.Game.activity_pop_menu" />
         <activity android:name=".Test" />
         <activity android:name=".Test_sonuc" />
         <activity android:name=".Game_result" />
@@ -36,6 +41,8 @@
         <activity android:name=".Views.Game.Istatistik" />
         <activity android:name=".Profil" />
         <activity android:name=".Views.Game.Hikaye" />
+
     </application>
+
 
 </manifest>

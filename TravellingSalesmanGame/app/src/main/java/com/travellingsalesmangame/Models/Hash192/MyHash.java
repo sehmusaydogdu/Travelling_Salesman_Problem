@@ -69,20 +69,17 @@ public class MyHash {
             }
         }
 
-        String result = "";
+        StringBuilder result=new StringBuilder();
 
         //elde edilen veriyi 16lik tabana (hexedecimal) cevirip bir string'e ekliyoruz
         for(int i=0; i < blocks192[0].length; i++)
-            result = result + String.format("%8s", (Integer.toHexString(blocks192[blocks192.length - 1][i]))).replace(' ', '0');
+            result.append(String.format("%8s", (Integer.toHexString(blocks192[blocks192.length - 1][i]))).replace(' ', '0'));
 
-        return result;
+        return result.toString();
     }
 
     //32 bitlik blocklarrın bitlerinin sola dairesel kaydirma islemi
-    private int shift(int A, int count){
-
-        return Integer.rotateLeft(A, count);
-    }
+    private int shift(int A, int count){ return Integer.rotateLeft(A, count); }
 
 
     //her 24 turda değişecek olan fonksiyonlar

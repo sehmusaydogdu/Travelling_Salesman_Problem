@@ -61,7 +61,7 @@ public class StateMenu_Fragment extends Fragment {
         if(levelSaved == levelClicked)
             buttonCreater.create(Examples.getCores()[levelClicked].length, stateSaved);
         else
-            buttonCreater.create(Examples.getCores()[levelClicked].length,Examples.getCores()[levelClicked].length); //, değil ise hepsi yeşil ve enabled, dizi aşılıyor**
+            buttonCreater.create(Examples.getCores()[levelClicked].length, Examples.getCores()[levelClicked].length); //, değil ise hepsi yeşil ve enabled, dizi aşılıyor**
 
     }
 

@@ -1,7 +1,6 @@
 package com.travellingsalesmangame.Controllers.Login;
 
 //Bu sinif kullanici verilerinin bazi kurallara uyma durumunu kontrol eder.
-
 public class UserRules {
 
     public static boolean check_name(String userName) {
@@ -27,7 +26,6 @@ public class UserRules {
     }
 
     public static boolean check_password(String password) {        //sifre 8 ile 16 karakter arasinda olsun istiyoruz
-
         return !(password.length() < 8 || password.length() > 16);
     }
 }

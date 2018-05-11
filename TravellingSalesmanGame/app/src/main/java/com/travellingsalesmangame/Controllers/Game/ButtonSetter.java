@@ -1,5 +1,6 @@
 package com.travellingsalesmangame.Controllers.Game;
 
+
 import android.graphics.Point;
 import android.view.View;
 import com.travellingsalesmangame.Models.Game.ScreenSettings;
@@ -97,10 +98,4 @@ public class ButtonSetter {
         if(i==0) levelStateSetView(button);
         if(i==1) gameButtonView(button);
     }
-
-
-
-
-
-
 }

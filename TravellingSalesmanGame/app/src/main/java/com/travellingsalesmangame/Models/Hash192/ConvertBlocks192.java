@@ -1,5 +1,6 @@
 package com.travellingsalesmangame.Models.Hash192;
 
+
 class ConvertBlocks192 {
 
     int[][] convert(String s) {
@@ -44,7 +45,7 @@ class ConvertBlocks192 {
             for(int j=0; j < 4; j++){
 
                 block32[i] += bytes[i*4+j];         //32 bitlik blokların herbiri 4 adet byte dizisinden bitlerinin birleşmesi şeklinde oluşturuluyor.
-                                                    //Bunun icin her byte terimini 32 bitlik terime akleyip 8 bit sola kaydiriyorum. son byte eklenirken yapilmamasi gereken kaydirma islemini yapmiyorum
+                //Bunun icin her byte terimini 32 bitlik terime akleyip 8 bit sola kaydiriyorum. son byte eklenirken yapilmamasi gereken kaydirma islemini yapmiyorum
                 if(j != 3)
                     block32[i] <<= 8;
             }

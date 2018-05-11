@@ -82,9 +82,8 @@ public class LoginActivity extends AppCompatActivity {
                         ){                                                                          //geçerli kullanıcı olup olmama durumu
 
                     user = new User();
-                    user.setEmail(dataSnapshot.child("email").getValue(String.class));
-                    user.setUserName(dataSnapshot.child("userName").getValue(String.class));
-                    user.setPassword(dataSnapshot.child("password").getValue(String.class));
+
+                    user = dataSnapshot.getValue(User.class);
 
                     if(user.getPassword().equals(saltedHashedPassword)) {//şifrelerin eşleşmeme durumu
 

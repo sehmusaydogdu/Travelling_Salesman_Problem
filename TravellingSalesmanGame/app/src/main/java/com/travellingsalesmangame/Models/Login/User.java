@@ -1,7 +1,6 @@
 package com.travellingsalesmangame.Models.Login;
 
 //Kullanici sinifi, veri tabanina direk bu sinifin nesneleri kayit edilir.
-
 public class User {
 
     private String email,name,password;

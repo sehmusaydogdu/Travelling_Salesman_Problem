@@ -2,7 +2,7 @@
     <string name="app_name">TravellingSalesmanGame</string>
     <string name="app_title_name">Oyun</string>
 
-    //about Login UI
+    <!-- UI About-->
     <string name="email">E-mail Giriniz</string>
     <string name="password">Şifrenizi Giriniz</string>
     <string name="again_password">Şifrenizi Tekrar Giriniz</string>

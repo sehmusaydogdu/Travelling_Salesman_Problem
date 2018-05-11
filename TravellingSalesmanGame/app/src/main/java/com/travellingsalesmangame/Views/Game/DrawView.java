@@ -4,9 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.View;
-import android.widget.ImageButton;
-
-import java.util.List;
 
 public class DrawView extends View {
 
