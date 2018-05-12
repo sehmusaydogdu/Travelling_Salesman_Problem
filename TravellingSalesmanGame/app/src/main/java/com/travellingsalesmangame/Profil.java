@@ -1,7 +1,6 @@
 package com.travellingsalesmangame;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,19 +8,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -32,18 +29,12 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.google.gson.Gson;
 import com.travellingsalesmangame.Models.Login.User;
-import com.travellingsalesmangame.Views.Game.Master_layout;
+import com.travellingsalesmangame.Views.Game.Master_Main;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.List;
 
-
-import id.zelory.compressor.Compressor;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -53,7 +44,7 @@ public class Profil extends Fragment{
     private SharedPreferences prefs;
     private User user;
     private Gson gson;
-    private TextView txtKullaniciAdi,txtEmail;
+    private EditText txtKullaniciAdi,txtEmail;
 
     private Button btnChose;
     private Uri filePath;
@@ -83,6 +74,9 @@ public class Profil extends Fragment{
         user=new User(gson.fromJson(json,User.class));
         txtKullaniciAdi.setText(user.getUserName());
         txtEmail.setText(user.getEmail());
+        txtEmail.setEnabled(false);
+        txtEmail.setKeyListener(null);
+
 
         btnChose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -170,7 +164,7 @@ public class Profil extends Fragment{
                 profileImageView.setImageBitmap(bitmap);
                 Toast.makeText(getActivity(),"Resim alındı",Toast.LENGTH_SHORT).show();
                 uploadImage();
-                Intent intent=new Intent(getActivity(), Master_layout.class);
+                Intent intent=new Intent(getActivity(), Master_Main.class);
                 startActivity(intent);
             }
             catch (IOException e)

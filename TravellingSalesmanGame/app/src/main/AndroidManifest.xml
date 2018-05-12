@@ -13,16 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".Views.Game.Master_layout"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".Views.Game.Master_Main"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Views.Login.LoginActivity"
             android:screenOrientation="portrait"
@@ -31,18 +30,17 @@
             android:name=".Views.Login.RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
         <activity android:name=".Views.Game.PopActivity" />
         <activity android:name=".Test" />
         <activity android:name=".Test_sonuc" />
-        <activity android:name=".Game_result" />
-        <activity android:name=".MasterYonlendir" />
-        <activity android:name=".MasterChange" />
+        <activity android:name=".Views.Game.Game_result" />
+        <activity android:name=".Master_Acilis" />
+        <activity android:name=".Kategori_Secimi" />
         <activity android:name=".Views.Game.Istatistik" />
         <activity android:name=".Profil" />
         <activity android:name=".Views.Game.Hikaye" />
-
+        <activity android:name=".Oyun_Turu" />
+        <activity android:name=".Bilgisayar_Karsi"></activity>
     </application>
-
 
 </manifest>

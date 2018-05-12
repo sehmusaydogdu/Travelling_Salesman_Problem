@@ -7,4 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".Views.Game.LevelMenu_Fragment"
     android:id="@+id/levelMenuActivity"
-    android:paddingTop="30dp"/>
+    android:paddingTop="30dp"
+    android:alpha=".9"
+    android:background="@drawable/level_state"/>

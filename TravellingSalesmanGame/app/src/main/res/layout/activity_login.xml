@@ -5,22 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5fb0c9"
+    android:background="@drawable/image_background"
     android:orientation="vertical"
     tools:context=".Views.Login.LoginActivity"
-    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+    android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+    android:alpha=".9">
 
-    <TextView
-        android:id="@+id/login_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
-        android:text="Welcome to App"
-        android:textColor="#fff"
-        android:textSize="26sp"
-        android:textStyle="bold" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,7 +19,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
         android:background="#fff"
         android:elevation="4dp"
         android:orientation="vertical"
@@ -100,5 +91,13 @@
                 android:onClick="login_sign_onclick"/>
         </LinearLayout>
     </RelativeLayout>
-
+    <ImageButton
+        android:id="@+id/user_profile_photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/user_profile_image_background"
+        android:elevation="4dp"
+        android:src="@drawable/profil_icon" />
 </RelativeLayout>

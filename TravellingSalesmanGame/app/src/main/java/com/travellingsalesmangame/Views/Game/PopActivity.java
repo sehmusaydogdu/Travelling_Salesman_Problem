@@ -16,7 +16,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.travellingsalesmangame.MasterChange;
+import com.travellingsalesmangame.Kategori_Secimi;
 import com.travellingsalesmangame.R;
 import com.travellingsalesmangame.Test;
 
@@ -120,7 +120,7 @@ public class PopActivity extends Fragment implements View.OnClickListener{
                     public void onClick(DialogInterface dialog, int which) {
                         manager=getFragmentManager();
                         transaction=manager.beginTransaction();
-                        transaction.replace(R.id.context_main,new MasterChange());
+                        transaction.replace(R.id.context_main,new Kategori_Secimi());
                         transaction.commit();
                     }
                 });

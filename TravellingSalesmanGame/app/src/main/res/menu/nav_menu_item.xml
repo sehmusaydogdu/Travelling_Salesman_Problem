@@ -10,7 +10,7 @@
     <item
         android:id="@+id/profil"
         android:title="Profil Görüntüle"
-        android:icon="@drawable/ic_home_black_24dp"/>
+        android:icon="@drawable/ic_account_circle_black_24dp"/>
 
     <item
         android:id="@+id/istatistik"

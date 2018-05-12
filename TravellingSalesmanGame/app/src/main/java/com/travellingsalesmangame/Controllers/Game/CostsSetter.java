@@ -67,7 +67,7 @@ public class CostsSetter {
             TextView textView = new TextView(context);
             textView.setText(String.valueOf(cost[2]));
             textView.setTextSize(15);
-            textView.setTextColor(Color.BLACK);
+            textView.setTextColor(Color.WHITE);
             textView.setPadding(30,18,0,0);
             textView.setBackground(null);
             textView.setElevation(24);

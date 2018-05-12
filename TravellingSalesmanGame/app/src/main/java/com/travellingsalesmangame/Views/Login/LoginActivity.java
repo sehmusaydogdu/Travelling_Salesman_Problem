@@ -23,7 +23,7 @@ import com.travellingsalesmangame.Controllers.Login.UserRules;
 import com.travellingsalesmangame.Models.Hash192.MyHash;
 import com.travellingsalesmangame.Models.Login.User;
 import com.travellingsalesmangame.R;
-import com.travellingsalesmangame.Views.Game.Master_layout;
+import com.travellingsalesmangame.Views.Game.Master_Main;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                         saltedHashedPassword = null;
 
                         Toast.makeText(LoginActivity.this, "Giriş Başarılı", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, Master_layout.class);
+                        Intent intent = new Intent(LoginActivity.this, Master_Main.class);
                         startActivity(intent);
                         finish();
                     }

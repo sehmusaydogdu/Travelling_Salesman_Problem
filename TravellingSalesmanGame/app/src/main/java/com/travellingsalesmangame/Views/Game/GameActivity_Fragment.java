@@ -6,7 +6,6 @@ import android.app.FragmentTransaction;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,6 @@ import android.widget.TextView;
 import com.travellingsalesmangame.Controllers.Game.ButtonCreater;
 import com.travellingsalesmangame.Controllers.Game.CostsSetter;
 import com.travellingsalesmangame.Controllers.Game.Stage;
-import com.travellingsalesmangame.Game_result;
 import com.travellingsalesmangame.Models.Game.Core;
 import com.travellingsalesmangame.Models.Game.Examples;
 import com.travellingsalesmangame.Models.Game.Result;
@@ -161,7 +159,6 @@ public class GameActivity_Fragment extends Fragment {
     }
 
     private void timeStart(){
-        // Start long running operation in a background thread
         new Thread(new Runnable() {
 
             public void run() {
@@ -196,9 +193,9 @@ public class GameActivity_Fragment extends Fragment {
                                 result.setLevel_state_durum(level_state_belirle);
 
                                 if (core.getSolution()==totalScore)
-                                    result.setMessage("Tebrikler! Görevi başarılı bir şekilde tamamladınız");
+                                    result.setOyun_durumu(true);
                                 else
-                                    result.setMessage("Üzgünüm! Görev tamamlanmadı.");
+                                    result.setOyun_durumu(false);
 
                                 Bundle bundle=new Bundle();
                                 bundle.putSerializable("result", result);
@@ -213,12 +210,8 @@ public class GameActivity_Fragment extends Fragment {
                             }
                         }
                     });
-                    try {
-                        // Sleep for 500 milliseconds.
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    try { Thread.sleep(100); }
+                    catch (InterruptedException e) { e.printStackTrace(); }
                 }
             }
 
